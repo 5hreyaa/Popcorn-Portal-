@@ -1,0 +1,21 @@
+<div class="header-container">
+  <div class="logo" (click)="goToHome()">Popcorn Portal</div>
+
+  <div class="header-right">
+
+    <div class="genres-menu">
+      <button (click)="toggleDropdown()">Genres ▼</button>
+      <div class="dropdown-content" [ngClass]="{'show': dropdownVisible}">
+        <a href="#" (click)="scrollToSection($event, 'trending-movies')">Trending</a>
+        <a href="#" (click)="scrollToSection($event, 'theatre-movies')">Theatre</a>
+        <a href="#" (click)="scrollToSection($event, 'action-movies')">Action</a>
+        <a href="#" (click)="scrollToSection($event, 'romantic-movies')">Romantic</a>
+        <a href="#" (click)="scrollToSection($event, 'thriller-movies')">Thriller</a>
+        <a href="#" (click)="scrollToSection($event, 'comedy-movies')">Comedy</a>
+        <a href="#" (click)="scrollToSection($event, 'popular-movies')">Popular</a>
+      </div>
+    </div>
+
+    <div class="logout" (click)="logout()">Logout</div>
+  </div>
+</div>

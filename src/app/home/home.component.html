@@ -1,0 +1,167 @@
+<app-header></app-header>
+<div class="home-container">
+  <div class="all-movies">
+    <!-- Existing sections for trending, theatre, action, and romantic movies -->
+
+    <!-- Trending Movies -->
+    <div id="trending-movies" class="trending-movies">
+      <div class="top">
+        <h4>Trending Movies</h4>
+        <a href="https://www.imdb.com/list/ls535242299/" target="_blank">View All</a>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of trendingMovies">
+          <div class="cover" (click)="toggleDetails(movie)">
+            <img [src]="movie.cover" alt="{{ movie.name }}" style="width: 170px; height: 200px;">
+          </div>
+          <div class="detail">
+            <div class="name">{{ movie.name }}</div>
+            <div *ngIf="movie.expanded">
+              <p>Author: {{ movie.author }}</p>
+              <p>Published On: {{ movie.published_on }}</p>
+              <p>Review: {{ movie.review }}</p>
+              <p>Rating: {{ movie.rating }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theatre Movies -->
+    <div id="theatre-movies" class="theatre-movies">
+      <div class="top">
+        <h4>Theatre Movies</h4>
+        <a href="https://www.rottentomatoes.com/browse/movies_in_theaters/sort:popular" target="_blank">View All</a>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of theatreMovies">
+          <div class="cover">
+            <img [src]="movie.cover" alt="{{ movie.name }}" class="movie-image" style="width: 170px; height: 200px;">
+          </div>
+          <div class="detail">
+            <div class="name">{{ movie.name }}</div>
+            <div class="rating">{{ movie.rating }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Movies -->
+    <div id="action-movies" class="action-movies">
+      <div class="top">
+        <h4>Action Movies</h4>
+        <a href="https://www.imdb.com/list/ls027328830/" target="_blank">View All</a>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of actionMovies">
+          <div class="cover">
+            <img [src]="movie.cover" alt="{{ movie.name }}" class="movie-image" style="width: 170px; height: 200px;">
+          </div>
+          <div class="detail">
+            <div class="name">{{ movie.name }}</div>
+            <div class="rating">{{ movie.rating }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Romantic Movies -->
+    <div id="romantic-movies" class="romantic-movies">
+      <div class="top">
+        <h4>Romantic Movies</h4>
+        <a href="https://www.imdb.com/list/ls072723203/" target="_blank">View All</a>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of romanticMovies">
+          <div class="cover">
+            <img [src]="movie.cover" alt="{{ movie.name }}" class="movie-image" style="width: 170px; height: 200px;">
+          </div>
+          <div class="detail">
+            <div class="name">{{ movie.name }}</div>
+            <div class="rating">{{ movie.rating }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thriller Movies -->
+    <div  id="thriller-movies" class="thriller-movies">
+      <div class="top">
+        <h4>Thriller Movies</h4>
+        <a href="https://www.imdb.com/list/ls076166467/" target="_blank">View All</a>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of thrillerMovies">
+          <div class="cover">
+            <img [src]="movie.cover" alt="{{ movie.name }}" class="movie-image" style="width: 170px; height: 200px;">
+          </div>
+          <div class="detail">
+            <div class="name">{{ movie.name }}</div>
+            <div class="rating">{{ movie.rating }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comedy Movies -->
+    <div id="comedy-movies" class="comedy-movies">
+      <div class="top">
+        <h4>Comedy Movies</h4>
+        <a href="https://www.imdb.com/list/ls000551766/" target="_blank">View All</a>
+      </div>
+      <div class="movies-thumbnail">
+        <div class="movie" *ngFor="let movie of comedyMovies">
+          <div class="cover">
+            <img [src]="movie.cover" alt="{{ movie.name }}" class="movie-image" style="width: 170px; height: 200px;">
+          </div>
+          <div class="detail">
+            <div class="name">{{ movie.name }}</div>
+            <div class="rating">{{ movie.rating }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Movies -->
+  <div  id="popular-movies"  class="popular-movies">
+    <h4>Popular Movies</h4>
+    <div class="movies">
+      <div class="movie" *ngFor="let movie of popularMovies">
+        <div class="movie-info">
+          <div class="name">{{ movie.name }}</div>
+          <div class="rating">{{ movie.rating }}</div>
+        </div>
+      </div>
+      <a href="https://www.imdb.com/chart/top/" target="_blank">View All</a>
+    </div>
+
+    <!-- Slider for Popular Movies -->
+    <div class="slider-wrapper">
+      <div class="slider-content">
+        <div class="movie" *ngFor="let movie of popularMovies; let i = index" [style.display]="currentIndex === i ? 'block' : 'none'">
+          <img [src]="movie.cover" alt="{{ movie.name }}" class="movie-image">
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button (click)="slide('left')">‹</button>
+        <button (click)="slide('right')">›</button>
+      </div>
+    </div>
+
+
+<div class="gifs-container">
+    <div class="gif-slide">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamY3c2Rsb3I5MXh4ZW92NWc1ajh2dWJucmp3YnRpcTJubHU3ZjQ5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6n8QfoQhIoKWR9uLt5/giphy.webp" alt="Movie GIF 1">
+    </div>
+    <div class="gif-slide">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHMwYnhlOTl3NndhYTAzNzJwYWt2YnNreTNvNTZkZXliMXp5N3U1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/z9EaObbaU7pS4zFl6d/giphy.webp" alt="Movie GIF 2">
+    </div>
+    <div class="gif-slide">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExempvOXRwdnQzYms2bGk5MzB2em5hdHp0NGYxOTNpaTBleTVmMW9wMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A7ZbCuv0fJ0POGucwV/giphy.webp" alt="Movie GIF 3">
+    </div>
+     <div class="gif-slide">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXp4ZGFsZTZpd20wMG1xeWtxNnF4aWIzM2Y4dzF3ajcwbWF1d3N2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yHhl8lX55j1vBo7y0S/giphy.webp" alt="Movie GIF 4">
+    </div>
+  </div>
+</div>
